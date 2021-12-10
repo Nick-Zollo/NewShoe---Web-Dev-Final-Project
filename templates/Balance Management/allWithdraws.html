@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+  {% for withdraw in withdraws %}
+      <div class="container border rounded mb-2 text-white body">
+        <div class="row my-1">
+          <div class="col-6">
+            <h5 class="ps-2 completed_line">Withdraw Amount: ${{withdraw.withdrawAmount}}</h5>
+            <p class="ps-2 completed_line">Date: {{ withdraw.withdrewAt }}</p>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+{% endblock %}

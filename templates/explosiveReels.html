@@ -1,0 +1,371 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+  <!--Slot Machine-->
+  <body class = body>
+    <div class="container border rounded shadow background mt-5">
+        <div class = "row justify-content-center">
+            <div class = "col-lg-6 text-center">
+                <p class = "display-4 text-white"><b>Explosive Reels</b></p>
+                <p id = "winLoseNotEnough" class = "text-white lead">Get 5 of a kind to win!</p>
+            </div>
+        </div>
+        <div class = "row justify-content-center m-2">
+            <div class = "col-2 border rounded text-center">
+                <div class = "col p-1" >
+                    <img id="slot1" src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid slot c1 c4" alt="minecart" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot6" src="{% static 'images/slot3img/diamond.png' %}" class="img-fluid slot c1 c4" alt="diamond" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot11" src="{% static 'images/slot3img/torch.png' %}" class="img-fluid slot c1 c4" alt="torch" height = 150 width = 150>
+                </div>
+            </div>
+
+            <div class = "col-2 border rounded text-center">
+                <div class = "col p-1">
+                    <img id="slot2" src="{% static 'images/slot3img/pickaxe.png' %}" class="img-fluid slot c1" alt="pickaxe" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot7" src="{% static 'images/slot3img/torch.png' %}" class="img-fluid slot c1" alt="torch" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot12" src="{% static 'images/slot3img/lamp.png' %}" class="img-fluid slot c1" alt="lamp" height = 150 width = 150>
+                </div>
+            </div>
+
+            <div class = "col-2 border rounded text-center">
+                <div class = "col p-1">
+                    <img id="slot3" src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid slot" alt="dynamite" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot8" src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid slot" alt="dynamite" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot13" src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid slot" alt="minecart" height = 150 width = 150>
+                </div>
+            </div>
+            <div class = "col-2 border rounded text-center">
+                <div class = "col p-1">
+                    <img id="slot4" src="{% static 'images/slot3img/torch.png' %}" class="img-fluid slot" alt="torch" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot9" src="{% static 'images/slot3img/lamp.png' %}" class="img-fluid slot" alt="lamp" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot14" src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid slot" alt="minecart" height = 150 width = 150>
+                </div>
+            </div>
+            <div class = "col-2 border rounded text-center">
+                <div class = "col p-1">
+                    <img id="slot5" src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid slot" alt="dynamite" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot10" src="{% static 'images/slot3img/diamond.png' %}" class="img-fluid slot" alt="diamond" height = 150 width = 150>
+                </div>
+                <div class = "col p-1">
+                    <img id="slot15" src="{% static 'images/slot3img/gold.png' %}" class="img-fluid slot" alt="gold" height = 150 width = 150>
+                </div>
+            </div>
+        </div>
+
+        <div class = "row m-2 text-center">
+          <div class="col-2"></div>
+            <div class = "col-sm-4 col-12 border rounded">
+                <h3 class = "text-white">BET</h3>
+                <button id="minusBet" class = "btn btn-danger m-1">-</button>
+                <h3 class = "bet text-white">$<span id="bet" >1</span></h3>
+                <button id="plusBet" class = "btn btn-success m-1">+</button>
+            </div>
+            <div class = "col-sm-4 col-12 border rounded">
+                <button id = 'spin' type="button" class = "btn btn-outline-light spinButtonMargin">
+                    Spin<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-play-fill " viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/> </svg>
+                </button>
+            </div>
+        </div>
+        </div>
+
+    <div class = "container border rounded shadow lowerbackground">
+        <div class = "row m-2 text-center">
+            <div class = "col-sm-6">
+                <p class = "text-white display-6">Here's how you can win!</p>
+                <p class = "text-white">Match five of the same symbol in any of these orientations!</p>
+                <img src="{% static 'images/slot3img/3x5playlines.PNG' %}" class="img-fluid" alt="playlines">
+            </div>
+            <div class = "col-sm-6">
+                <p class = "text-white display-6">Your potential winnings!</p>
+                <img src="{% static 'images/slot3img/lamp.png' %}" class="img-fluid winnings mb-1" alt="lamp" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/lamp.png' %}" class="img-fluid winnings mb-1" alt="lamp" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/lamp.png' %}" class="img-fluid winnings mb-1" alt="lamp" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/lamp.png' %}" class="img-fluid winnings mb-1" alt="lamp" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/lamp.png' %}" class="img-fluid winnings mb-1" alt="lamp" height = 40 width = 40>
+                <p class = "winnings text-light" > = 4x Bet</p>
+                &nbsp
+                <img src="{% static 'images/slot3img/torch.png' %}" class="img-fluid winnings mb-1" alt="torch" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/torch.png' %}" class="img-fluid winnings mb-1" alt="torch" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/torch.png' %}" class="img-fluid winnings mb-1" alt="torch" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/torch.png' %}" class="img-fluid winnings mb-1" alt="torch" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/torch.png' %}" class="img-fluid winnings mb-1" alt="torch" height = 40 width = 40>
+                <p class = "winnings text-light" > = 10x Bet</p>
+                <br>
+                <img src="{% static 'images/slot3img/pickaxe.png' %}" class="img-fluid winnings mb-1" alt="pickaxe" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/pickaxe.png' %}" class="img-fluid winnings mb-1" alt="pickaxe" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/pickaxe.png' %}" class="img-fluid winnings mb-1" alt="pickaxe" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/pickaxe.png' %}" class="img-fluid winnings mb-1" alt="pickaxe" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/pickaxe.png' %}" class="img-fluid winnings mb-1" alt="pickaxe" height = 40 width = 40>
+                <p class = "winnings text-light" > = 6x Bet</p>
+                &nbsp
+                <img src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid winnings mb-1" alt="dynamite" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid winnings mb-1" alt="dynamite" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid winnings mb-1" alt="dynamite" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid winnings mb-1" alt="dynamite" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/dyn.png' %}" class="img-fluid winnings mb-1" alt="dynamite" height = 40 width = 40>
+                <p class = "winnings text-light" > = 12x Bet</p>
+                <br>
+                <img src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid winnings mb-1" alt="minecart" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid winnings mb-1" alt="minecart" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid winnings mb-1" alt="minecart" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid winnings mb-1" alt="minecart" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/minecart.png' %}" class="img-fluid winnings mb-1" alt="minecart" height = 40 width = 40>
+                <p class = "winnings text-light" > = 8x Bet</p>
+                &nbsp
+                <img src="{% static 'images/slot3img/gold.png' %}" class="img-fluid winnings mb-1" alt="gold" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/gold.png' %}" class="img-fluid winnings mb-1" alt="gold" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/gold.png' %}" class="img-fluid winnings mb-1" alt="gold" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/gold.png' %}" class="img-fluid winnings mb-1" alt="gold" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/gold.png' %}" class="img-fluid winnings mb-1" alt="gold" height = 40 width = 40>
+                <p class = "winnings text-light" > = 14x Bet</p>
+                <br>
+                <img src="{% static 'images/slot3img/diamond.png' %}" class="img-fluid winnings mb-1" alt="diamond" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/diamond.png' %}" class="img-fluid winnings mb-1" alt="diamond" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/diamond.png' %}" class="img-fluid winnings mb-1" alt="diamond" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/diamond.png' %}" class="img-fluid winnings mb-1" alt="diamond" height = 40 width = 40>
+                <img src="{% static 'images/slot3img/diamond.png' %}" class="img-fluid winnings mb-1" alt="diamond" height = 40 width = 40>
+                <p class = "winnings text-light"><b> = 20x Bet</b></p>
+            </div>
+        </div>
+      <div class="row">
+        <div class="col-12 text-center pb-3">
+          <form action="{% url 'updateBalFromSlot' %}" method="post">
+                  <input type="hidden" id="testid3" value="" name="slotBalance">
+                  <input class="btn btn-outline-light spinButtonMargin" type="submit" value="Deposit">
+                  {% csrf_token %}
+                  </form>
+        </div>
+      </div>
+    </div>
+</body>
+  <script>
+$(document).ready(function()
+{
+
+    let myBet = 1;
+    let myBalance = {{ player.balance }}
+    const images = ['/diamond.png', '/dyn.png', '/pickaxe.png', '/minecart.png', '/lamp.png', '/torch.png', '/gold.png']
+
+    $('#spin').click(spinClick);
+
+    $('#plusBet').click(function()
+    {
+        if (myBet < myBalance)
+            $('#bet').text(++myBet);
+    });
+
+    $('#minusBet').click(decrement);
+    function decrement()
+    {
+        if (myBet > 1)
+        {
+            $('#bet').text(--myBet);
+        }
+    }
+    function winCheck()
+    {
+        if ($('#slot1').attr('src') === $('#slot2').attr('src') && $('#slot2').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot4').attr('src') && $('#slot4').attr('src') === $('#slot5').attr('src') ||
+            $('#slot6').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot10').attr('src') ||
+            $('#slot11').attr('src') === $('#slot12').attr('src') && $('#slot12').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot14').attr('src') && $('#slot14').attr('src') === $('#slot15').attr('src') ||
+            $('#slot1').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src') ||
+            $('#slot11').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src') ||
+            $('#slot1').attr('src') === $('#slot2').attr('src') && $('#slot2').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src') ||
+            $('#slot11').attr('src') === $('#slot12').attr('src') && $('#slot12').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src') ||
+            $('#slot5').attr('src') === $('#slot4').attr('src') && $('#slot4').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot11').attr('src') ||
+            $('#slot15').attr('src') === $('#slot14').attr('src') && $('#slot14').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot1').attr('src') ||
+            $('#slot1').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src') ||
+            $('#slot11').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src') ||
+            $('#slot6').attr('src') === $('#slot2').attr('src') && $('#slot2').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot14').attr('src') && $('#slot14').attr('src') === $('#slot10').attr('src') ||
+            $('#slot6').attr('src') === $('#slot12').attr('src') && $('#slot12').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot4').attr('src') && $('#slot4').attr('src') === $('#slot6').attr('src') ||
+            $('#slot11').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src') ||
+            $('#slot1').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src'))
+        {
+            if ($('#slot1').attr('src') === $('#slot2').attr('src') && $('#slot2').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot4').attr('src') && $('#slot4').attr('src') === $('#slot5').attr('src'))
+            {
+                checkPicture($('#slot1').attr('src'), $('#slot2').attr('src'), $('#slot3').attr('src'), $('#slot4').attr('src'), $('#slot5').attr('src'));
+            }
+
+            if ($('#slot6').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot10').attr('src'))
+            {
+                checkPicture($('#slot6').attr('src'), $('#slot7').attr('src'), $('#slot8').attr('src'), $('#slot9').attr('src'), $('#slot10').attr('src'));
+            }
+
+            if ($('#slot11').attr('src') === $('#slot12').attr('src') && $('#slot12').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot14').attr('src') && $('#slot14').attr('src') === $('#slot15').attr('src'))
+            {
+                checkPicture($('#slot11').attr('src'), $('#slot12').attr('src'), $('#slot13').attr('src'), $('#slot14').attr('src'), $('#slot15').attr('src'));
+            }
+
+            if ($('#slot1').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src'))
+            {
+                checkPicture($('#slot1').attr('src'), $('#slot7').attr('src'), $('#slot13').attr('src'), $('#slot9').attr('src'), $('#slot5').attr('src'));
+            }
+
+            if ($('#slot11').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src'))
+            {
+                checkPicture($('#slot11').attr('src'), $('#slot7').attr('src'), $('#slot3').attr('src'), $('#slot9').attr('src'), $('#slot15').attr('src'));
+            }
+
+            if ($('#slot1').attr('src') === $('#slot2').attr('src') && $('#slot2').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src'))
+            {
+                checkPicture($('#slot1').attr('src'), $('#slot2').attr('src'), $('#slot3').attr('src'), $('#slot9').attr('src'), $('#slot15').attr('src'));
+            }
+
+            if ($('#slot11').attr('src') === $('#slot12').attr('src') && $('#slot12').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src'))
+            {
+                checkPicture($('#slot11').attr('src'), $('#slot12').attr('src'), $('#slot13').attr('src'), $('#slot9').attr('src'), $('#slot5').attr('src'));
+            }
+
+            if ($('#slot5').attr('src') === $('#slot4').attr('src') && $('#slot4').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot11').attr('src'))
+            {
+                checkPicture($('#slot5').attr('src'), $('#slot4').attr('src'), $('#slot3').attr('src'), $('#slot7').attr('src'), $('#slot11').attr('src'));
+            }
+
+            if ($('#slot15').attr('src') === $('#slot14').attr('src') && $('#slot14').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot1').attr('src'))
+            {
+                checkPicture($('#slot15').attr('src'), $('#slot14').attr('src'), $('#slot13').attr('src'), $('#slot7').attr('src'), $('#slot1').attr('src'));
+            }
+
+            if ($('#slot1').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot3').attr('src') && $('#slot3').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src'))
+            {
+                checkPicture($('#slot1').attr('src'), $('#slot7').attr('src'), $('#slot3').attr('src'), $('#slot9').attr('src'), $('#slot5').attr('src'));
+            }
+
+            if ($('#slot11').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot13').attr('src') && $('#slot13').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src'))
+            {
+                checkPicture($('#slot11').attr('src'), $('#slot7').attr('src'), $('#slot13').attr('src'), $('#slot9').attr('src'), $('#slot15').attr('src'));
+            }
+
+            if ($('#slot6').attr('src') === $('#slot2').attr('src') && $('#slot2').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot14').attr('src') && $('#slot14').attr('src') === $('#slot10').attr('src'))
+            {
+                checkPicture($('#slot6').attr('src'), $('#slot2').attr('src'), $('#slot8').attr('src'), $('#slot14').attr('src'), $('#slot10').attr('src'));
+            }
+
+            if ($('#slot6').attr('src') === $('#slot12').attr('src') && $('#slot12').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot4').attr('src') && $('#slot4').attr('src') === $('#slot10').attr('src'))
+            {
+                checkPicture($('#slot6').attr('src'), $('#slot12').attr('src'), $('#slot8').attr('src'), $('#slot4').attr('src'), $('#slot10').attr('src'));
+            }
+
+            if ($('#slot11').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot5').attr('src'))
+            {
+                checkPicture($('#slot6').attr('src'), $('#slot12').attr('src'), $('#slot8').attr('src'), $('#slot4').attr('src'), $('#slot10').attr('src'));
+            }
+
+            if ($('#slot1').attr('src') === $('#slot7').attr('src') && $('#slot7').attr('src') === $('#slot8').attr('src') && $('#slot8').attr('src') === $('#slot9').attr('src') && $('#slot9').attr('src') === $('#slot15').attr('src'))
+            {
+                checkPicture($('#slot6').attr('src'), $('#slot12').attr('src'), $('#slot8').attr('src'), $('#slot4').attr('src'), $('#slot10').attr('src'));
+            }
+                winText();
+            }
+            // Otherwise...
+            else
+            $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+            .text("You lost, spin again").css('color', 'red');
+    }
+
+    function spinClick()
+    {
+        if (myBalance - myBet >= 0)
+        {
+                $('.slot').each(function (index, element)
+                {
+                    $(element).attr("src", "{% static 'images/slot3img' %}" + images[random()]);
+                });
+                winCheck();
+                subtractBalance();
+                $('#testid3').val(myBalance);
+        }
+
+        else if (myBalance - myBet < 0)
+        {
+            $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+            .text('Invalid bet amount, you do not have enough money to bet ' + myBet + '$.')
+            .css('color', 'red');
+        }
+
+        if (myBalance === 0)
+        {
+            $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+            .text('You lost all your money!').css('color', 'red');
+        }
+    }
+
+    function checkPicture(v,w,x,y,z)
+    {
+        if (v && w && x && y && z === 'img/lamp.png')
+        {
+            myBalance = myBalance + (4 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (v && w && x && y && z === 'img/torch.png')
+        {
+            myBalance = myBalance + (6 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (v && w && x && y && z === 'img/pickaxe.png')
+        {
+            myBalance = myBalance + (8 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (v && w && x && y && z === 'img/dyn.png')
+        {
+            myBalance = myBalance + (10 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (v && w && x && y && z === 'img/minecart.png')
+        {
+            myBalance = myBalance + (12 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (v && w && x && y && z === 'img/gold.png')
+        {
+            myBalance = myBalance + (14 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (v && w && x && y && z === 'img/diamond.png')
+        {
+            myBalance = myBalance + (20 * myBet);
+            $('#money').text(myBalance);
+        }
+    }
+
+    function random()
+    {
+        return Math.floor(images.length * Math.random());
+    }
+
+    function subtractBalance()
+    {
+        myBalance = myBalance - myBet;
+        $('#money').text(myBalance);
+    }
+
+    function winText()
+    {
+        $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+        .text("Congratulations! You won!").css('color', 'red');
+    }
+});
+
+
+  </script>
+{% endblock %}

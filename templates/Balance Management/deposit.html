@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+  <div class="body">
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-white text-center">Deposit</h1>
+      </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+        <form action="{% url 'allDeposits' %}" method="post">
+          <input class="btn btn-primary text-center" type="submit" value="View All Deposits">
+          {% csrf_token %}
+        </form>
+      </div>
+    </div>
+    <div class="row pt-3 justify-content-center">
+      <div class="col-md-4 col-sm-12">
+        <div class="card text-center">
+          <div class="card-header lead">
+            Most Popular!
+          </div>
+          <div class="card-body">
+            <form action="{% url 'depositCustom' %}" method="post">
+              <input type="hidden" class="form-control mb-2" value="100" name="customAmount">
+              <h5 class="card-title pb-2">$100</h5>
+              <input class="btn btn-primary" type="submit" value="Deposit">
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Deposit 10-->
+    <div class="row pt-3 justify-content-center">
+      <div class="col-md-4 col-sm-12 mb-md-0 mb-3">
+        <div class="card text-center">
+          <div class="card-header lead">
+            Work your way up!
+          </div>
+          <div class="card-body">
+            <form action="{% url 'depositCustom' %}" method="post">
+              <input type="hidden" class="form-control mb-2" value="25" name="customAmount">
+              <h5 class="card-title pb-2">$25</h5>
+              <input class="btn btn-primary" type="submit" value="Deposit">
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 mb-md-0 mb-3">
+        <div class="card text-center">
+          <div class="card-header lead">
+            Good Starting Point!
+          </div>
+          <div class="card-body">
+            <form action="{% url 'depositCustom' %}" method="post">
+              <input type="hidden" class="form-control mb-2" value="50" name="customAmount">
+              <h5 class="card-title pb-2">$50</h5>
+              <input class="btn btn-primary" type="submit" value="Deposit">
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 mb-md-0 mb-3">
+        <div class="card text-center">
+          <div class="card-header lead">
+            You're Rich!
+          </div>
+          <div class="card-body">
+            <form action="{% url 'depositCustom' %}" method="post">
+              <input type="hidden" class="form-control mb-2" value="250" name="customAmount">
+              <h5 class="card-title pb-2">$250</h5>
+              <input class="btn btn-primary" type="submit" value="Deposit">
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-md-3 justify-content-center pb-5">
+      <div class="col-12">
+        <div class="card text-center">
+          <div class="card-header lead">
+            Deposit Custom Amount!
+          </div>
+          <div class="card-body">
+            <form action="{% url 'depositCustom' %}" method="post">
+                <input type="number" class="form-control mb-2" placeholder="Enter Amount" name="customAmount" min="10" max="5000">
+                {% csrf_token %}
+                <input class="btn btn-primary" type="submit" value="Deposit">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}

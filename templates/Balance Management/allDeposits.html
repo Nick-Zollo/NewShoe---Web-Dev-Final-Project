@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+  {% for deposit in deposits %}
+      <div class="container border rounded mb-2 text-white body">
+        <div class="row my-1">
+          <div class="col-6">
+            <h5 class="ps-2 completed_line">Deposit Amount: ${{deposit.depositAmount}}</h5>
+            <p class="ps-2 completed_line">Date: {{ deposit.depositedAt }}</p>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+{% endblock %}

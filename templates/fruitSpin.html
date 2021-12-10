@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<body class = body>
+    <div class="container py-2 border rounded shadow mt-5" style="background-image: '{% static 'images/fruitBackground.jpg' %}';">
+        <div class = "row justify-content-center">
+            <div class = "col-lg-6 text-center">
+                <p class = "display-3 text-white">Fruit Spin</p>
+                <p id = "winLoseNotEnough" class = "text-light lead">Get 3 of a kind in a row to win!</p>
+            </div>
+        </div>
+
+        <div class = "row m-2 p-3 border rounded text-center">
+            <div class = "col-4">
+                <img id="slot1" src="{% static 'images/slot1img/cherry.png' %}" class="img-fluid slot" alt="lemon">
+            </div>
+            <div class = "col-4">
+                <img id="slot2" src="{% static 'images/slot1img/strawberry.png' %}" class="img-fluid slot" alt="strawberry">
+            </div>
+            <div class = "col-4">
+                <img id="slot3" src="{% static 'images/slot1img/heart.png' %}" class="img-fluid slot" alt="heart">
+            </div>
+        </div>
+
+        <div class = "row m-2 text-center">
+          <div class="col-2"></div>
+            <div class = "col-sm-4 col-12 border rounded">
+                <h3 class = "text-white">BET</h3>
+                <button id="minusBet" class = "btn btn-danger">-</button>
+                <h3 class = "bet text-light">$<span id="bet" >1</span></h3>
+                <button id="plusBet" class = "btn btn-success">+</button>
+            </div>
+            <div class = "col-sm-4 col-12 border rounded">
+
+                <a class="btn btn-outline-light spinButtonMargin" id = 'spin' type="submit">
+                    Spin<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-play-fill " viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/> </svg>
+                </a>
+            </div>
+
+            <div class = "row m-2 text-center">
+                <div class = "col-sm-12">
+                    <p class = "text-white display-6">Your potential winnings!</p>
+                    <img src="{% static 'images/slot1img/cherry.png' %}" class="img-fluid winnings mb-1" alt="cherry" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/cherry.png' %}" class="img-fluid winnings mb-1" alt="cherry" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/cherry.png' %}" class="img-fluid winnings mb-1" alt="cherry" height = 40 width = 40>
+                    <p class = "winnings text-light" > = 2x Bet</p>
+                    &nbsp
+                    <img src="{% static 'images/slot1img/lemon.png' %}" class="img-fluid winnings mb-1" alt="lemon" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/lemon.png' %}" class="img-fluid winnings mb-1" alt="lemon" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/lemon.png' %}" class="img-fluid winnings mb-1" alt="lemon" height = 40 width = 40>
+                    <p class = "winnings text-light" > = 5x Bet</p>
+                    <br>
+                    <img src="{% static 'images/slot1img/grapes.png' %}" class="img-fluid winnings mb-1" alt="grapes" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/grapes.png' %}" class="img-fluid winnings mb-1" alt="grapes" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/grapes.png' %}" class="img-fluid winnings mb-1" alt="grapes" height = 40 width = 40>
+                    <p class = "winnings text-light" > = 3x Bet</p>
+                    &nbsp
+                    <img src="{% static 'images/slot1img/orange.png' %}" class="img-fluid winnings mb-1" alt="orange" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/orange.png' %}" class="img-fluid winnings mb-1" alt="orange" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/orange.png' %}" class="img-fluid winnings mb-1" alt="orange" height = 40 width = 40>
+                    <p class = "winnings text-light" > = 6x Bet</p>
+                    <br>
+                    <img src="{% static 'images/slot1img/heart.png' %}" class="img-fluid winnings mb-1" alt="heart" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/heart.png' %}" class="img-fluid winnings mb-1" alt="heart" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/heart.png' %}" class="img-fluid winnings mb-1" alt="heart" height = 40 width = 40>
+                    <p class = "winnings text-light" > = 4x Bet</p>
+                    &nbsp
+                    <img src="{% static 'images/slot1img/strawberry.png' %}" class="img-fluid winnings mb-1" alt="strawberry" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/strawberry.png' %}" class="img-fluid winnings mb-1" alt="strawberry" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/strawberry.png' %}" class="img-fluid winnings mb-1" alt="strawberry" height = 40 width = 40>
+                    <p class = "winnings text-light" > = 7x Bet</p>
+                    <br>
+                    <img src="{% static 'images/slot1img/seven.png' %}" class="img-fluid winnings mb-1" alt="seven" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/seven.png' %}" class="img-fluid winnings mb-1" alt="seven" height = 40 width = 40>
+                    <img src="{% static 'images/slot1img/seven.png' %}" class="img-fluid winnings mb-1" alt="seven" height = 40 width = 40>
+                    <p class = "winnings text-light"><b> = 10x Bet</b></p>
+                </div>
+              <div class="row">
+              <div class="col-sm-12">
+                <form action="{% url 'updateBalFromSlot' %}" method="post">
+                  <input type="hidden" id="testid" value="" name="slotBalance">
+                  <input class="btn btn-outline-light spinButtonMargin" type="submit" value="Deposit">
+                  {% csrf_token %}
+                  </form>
+              </div>
+            </div>
+              </div>
+        </div>
+    </div>
+</body>
+
+  <script>
+  $(document).ready(function()
+{
+    let myBet = 1;
+    let myBalance = {{ player.balance }};
+    const images = ['/cherry.png', '/grapes.png', '/heart.png', '/lemon.png', '/orange.png', '/seven.png', '/strawberry.png']
+
+
+
+    $('#spin').click(spinClick);
+
+    $('#plusBet').click(function()
+    {
+        if (myBet < myBalance)
+            $('#bet').text(++myBet);
+    });
+
+    $('#minusBet').click(decrement);
+    function decrement()
+    {
+        if (myBet > 1)
+        {
+            $('#bet').text(--myBet);
+        }
+    }
+
+    function winCheck()
+    {
+        if ($('#slot1').attr('src') === $('#slot2').attr('src') && $('#slot2').attr('src') === $('#slot3').attr('src'))
+        {
+                    checkPicture($('#slot1').attr('src'), $('#slot2').attr('src'), $('#slot3').attr('src'));
+                winText();
+        }
+        else
+            $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+            .text("You lost, spin again").css('color', 'red');
+    }
+
+    function spinClick()
+    {
+        if (myBalance - myBet >= 0)
+        {
+
+                $('.slot').each(function (index, element)
+                {
+                    $(element).attr("src", "{% static 'images/slot1img' %}" + images[random()]);
+                });
+                winCheck();
+                subtractBalance();
+                $('#testid').val(myBalance);
+        }
+
+        else if (myBalance - myBet < 0)
+        {
+            $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+            .text('Invalid bet amount, you do not have enough money to bet ' + myBet + '$.')
+            .css('color', 'red');
+        }
+
+        if (myBalance === 0)
+        {
+            $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+            .text('You lost all your money!').css('color', 'red');
+        }
+    }
+
+    function checkPicture(x,y,z)
+    {
+        if (x && y && z === "{% static 'images/slot1img/cherry.png' %}")
+        {
+            myBalance = myBalance + (2 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (x && y && z === "{% static 'images/slot1img/grapes.png' %}")
+        {
+            myBalance = myBalance + (3 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (x && y && z === "{% static 'images/slot1img/heart.png' %}")
+        {
+            myBalance = myBalance + (4 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (x && y && z === "{% static 'images/slot1img/lemon.png' %}")
+        {
+            myBalance = myBalance + (5 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (x && y && z === "{% static 'images/slot1img/orange.png' %}")
+        {
+            myBalance = myBalance + (6 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (x && y && z === "{% static 'images/slot1img/strawberry.png' %}")
+        {
+            myBalance = myBalance + (7 * myBet);
+            $('#money').text(myBalance);
+        }
+        if (x && y && z === "{% static 'images/slot1img/seven.png' %}")
+        {
+            myBalance = myBalance + (10 * myBet);
+            $('#money').text(myBalance);
+        }
+    }
+
+    function random()
+    {
+        return Math.floor(images.length * Math.random());
+    }
+
+    function subtractBalance()
+    {
+
+        myBalance = myBalance - myBet;
+        $('#money').text(myBalance);
+    }
+
+    function winText()
+    {
+
+        $('#winLoseNotEnough').fadeTo(100, 0.1).fadeTo(200, 1.0)
+        .text("Congratulations! You won!").css('color', 'red');
+    }
+});
+
+  </script>
+{% endblock %}

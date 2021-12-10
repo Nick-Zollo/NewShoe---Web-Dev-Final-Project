@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+  <div class="body">
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-white text-center">Withdraw</h1>
+      </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+        <form action="{% url 'allWithdraws' %}" method="post">
+          <input class="btn btn-primary text-center" type="submit" value="View All Withdraws">
+          {% csrf_token %}
+        </form>
+      </div>
+    </div>
+    <div class="row pt-md-3 justify-content-center pb-5">
+      <div class="col-12">
+        <div class="card text-center">
+          <div class="card-header lead">
+            Withdraw Custom Amount!
+          </div>
+          <div class="card-body">
+            <form action="{% url 'withdrawCustom' %}" method="post">
+                <input type="number" class="form-control mb-2" placeholder="Enter Amount" name="customAmount" min="1" max="{{ player.balance }}">
+                {% csrf_token %}
+                <input class="btn btn-primary" type="submit" value="Withdraw">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}
